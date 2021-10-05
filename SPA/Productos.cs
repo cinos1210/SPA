@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SPA
 {
-    public partial class Form1 : Form
+    public partial class Productos : Form
     {
-        public Form1()
+        public Productos()
         {
             InitializeComponent();
         }
-
     }
 }
