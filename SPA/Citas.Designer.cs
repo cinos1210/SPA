@@ -42,11 +42,15 @@ namespace SPA
             this.label4 = new System.Windows.Forms.Label();
             this.cboxServicio = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pBImagenes = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pBImagenes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxNombre
             // 
-            this.tbxNombre.Location = new System.Drawing.Point(707, 215);
+            this.tbxNombre.Location = new System.Drawing.Point(151, 221);
             this.tbxNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(169, 31);
@@ -54,7 +58,7 @@ namespace SPA
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(707, 263);
+            this.txbCorreo.Location = new System.Drawing.Point(151, 262);
             this.txbCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbCorreo.Name = "txbCorreo";
             this.txbCorreo.Size = new System.Drawing.Size(169, 31);
@@ -62,7 +66,7 @@ namespace SPA
             // 
             // txbTelefono
             // 
-            this.txbTelefono.Location = new System.Drawing.Point(707, 312);
+            this.txbTelefono.Location = new System.Drawing.Point(151, 311);
             this.txbTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(169, 31);
@@ -71,7 +75,7 @@ namespace SPA
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(614, 218);
+            this.label1.Location = new System.Drawing.Point(58, 224);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 25);
@@ -81,7 +85,7 @@ namespace SPA
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(624, 266);
+            this.label2.Location = new System.Drawing.Point(68, 265);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 25);
@@ -91,7 +95,7 @@ namespace SPA
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(611, 318);
+            this.label3.Location = new System.Drawing.Point(55, 317);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 25);
@@ -100,7 +104,7 @@ namespace SPA
             // 
             // btnAgrCita
             // 
-            this.btnAgrCita.Location = new System.Drawing.Point(724, 525);
+            this.btnAgrCita.Location = new System.Drawing.Point(151, 502);
             this.btnAgrCita.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgrCita.Name = "btnAgrCita";
             this.btnAgrCita.Size = new System.Drawing.Size(126, 78);
@@ -119,7 +123,7 @@ namespace SPA
             // 
             this.FechaCita.CustomFormat = "yyyy-mm-dd";
             this.FechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechaCita.Location = new System.Drawing.Point(592, 462);
+            this.FechaCita.Location = new System.Drawing.Point(36, 461);
             this.FechaCita.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FechaCita.Name = "FechaCita";
             this.FechaCita.Size = new System.Drawing.Size(284, 31);
@@ -135,7 +139,7 @@ namespace SPA
             "14:00:00",
             "16:00:00",
             "18:00:00"});
-            this.cboxHora.Location = new System.Drawing.Point(707, 353);
+            this.cboxHora.Location = new System.Drawing.Point(151, 352);
             this.cboxHora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboxHora.Name = "cboxHora";
             this.cboxHora.Size = new System.Drawing.Size(169, 33);
@@ -145,7 +149,7 @@ namespace SPA
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(636, 361);
+            this.label4.Location = new System.Drawing.Point(80, 360);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 25);
@@ -173,17 +177,19 @@ namespace SPA
             "14 - Masaje de pies",
             "15 - Masaje facial ",
             "16 - Manicura",
-            "17 - pedicura"});
-            this.cboxServicio.Location = new System.Drawing.Point(707, 405);
+            "17 - Pedicura"});
+            this.cboxServicio.Location = new System.Drawing.Point(151, 404);
             this.cboxServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboxServicio.Name = "cboxServicio";
             this.cboxServicio.Size = new System.Drawing.Size(169, 33);
             this.cboxServicio.TabIndex = 12;
+            this.cboxServicio.SelectedIndexChanged += new System.EventHandler(this.cboxServicio_SelectedIndexChanged);
+            this.cboxServicio.Click += new System.EventHandler(this.cboxServicio_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(614, 413);
+            this.label5.Location = new System.Drawing.Point(58, 412);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 25);
@@ -191,11 +197,32 @@ namespace SPA
             this.label5.Text = "Servicio:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // pBImagenes
+            // 
+            this.pBImagenes.Location = new System.Drawing.Point(401, 26);
+            this.pBImagenes.Name = "pBImagenes";
+            this.pBImagenes.Size = new System.Drawing.Size(673, 481);
+            this.pBImagenes.TabIndex = 14;
+            this.pBImagenes.TabStop = false;
+            this.pBImagenes.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pBImagenes.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pBImagenes_PreviewKeyDown);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(58, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(262, 139);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // Citas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.ClientSize = new System.Drawing.Size(1096, 599);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pBImagenes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboxServicio);
             this.Controls.Add(this.label4);
@@ -211,6 +238,9 @@ namespace SPA
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Citas";
             this.Text = "Citas";
+            this.Load += new System.EventHandler(this.Citas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pBImagenes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +262,7 @@ namespace SPA
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboxServicio;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pBImagenes;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

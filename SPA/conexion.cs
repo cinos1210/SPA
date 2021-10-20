@@ -62,5 +62,27 @@ namespace SPA
             dato.Fill(tabla);
             return tabla.Rows[0]["costo"].ToString();
         }
+        public string obtenNumDeImagenes()
+        {
+            string sent = "SELECT max(id) FROM imagenes;";
+            con.Open();
+            NpgsqlCommand com = new NpgsqlCommand(sent, con);
+            NpgsqlDataAdapter dato = new NpgsqlDataAdapter(com);
+            DataTable tabla = new DataTable();
+            dato.Fill(tabla);
+            con.Close();
+            return tabla.Rows[0]["max"].ToString();
+        }
+        public Byte[] obtenImagen(int num)
+        {
+            string sent = "SELECT image FROM imagenes WHERE id=" + num + ";" ;
+            con.Open();
+            NpgsqlCommand com = new NpgsqlCommand(sent, con);
+            NpgsqlDataAdapter dato = new NpgsqlDataAdapter(com);
+            DataTable tabla = new DataTable();
+            dato.Fill(tabla);
+            con.Close();
+            return (byte[])(tabla.Rows[0]["image"]);
+        }
     }
 }
