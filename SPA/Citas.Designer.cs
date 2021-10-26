@@ -50,7 +50,7 @@ namespace SPA
             // 
             // tbxNombre
             // 
-            this.tbxNombre.Location = new System.Drawing.Point(151, 221);
+            this.tbxNombre.Location = new System.Drawing.Point(151, 246);
             this.tbxNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(169, 31);
@@ -58,7 +58,7 @@ namespace SPA
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(151, 262);
+            this.txbCorreo.Location = new System.Drawing.Point(151, 287);
             this.txbCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbCorreo.Name = "txbCorreo";
             this.txbCorreo.Size = new System.Drawing.Size(169, 31);
@@ -66,7 +66,7 @@ namespace SPA
             // 
             // txbTelefono
             // 
-            this.txbTelefono.Location = new System.Drawing.Point(151, 311);
+            this.txbTelefono.Location = new System.Drawing.Point(151, 336);
             this.txbTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(169, 31);
@@ -75,7 +75,7 @@ namespace SPA
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 224);
+            this.label1.Location = new System.Drawing.Point(58, 249);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 25);
@@ -85,7 +85,7 @@ namespace SPA
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 265);
+            this.label2.Location = new System.Drawing.Point(68, 290);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 25);
@@ -95,7 +95,7 @@ namespace SPA
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 317);
+            this.label3.Location = new System.Drawing.Point(55, 339);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 25);
@@ -121,9 +121,9 @@ namespace SPA
             // 
             // FechaCita
             // 
-            this.FechaCita.CustomFormat = "yyyy-mm-dd";
+            this.FechaCita.CustomFormat = "yyyy-MM-dd";
             this.FechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechaCita.Location = new System.Drawing.Point(36, 461);
+            this.FechaCita.Location = new System.Drawing.Point(36, 205);
             this.FechaCita.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FechaCita.Name = "FechaCita";
             this.FechaCita.Size = new System.Drawing.Size(284, 31);
@@ -132,33 +132,30 @@ namespace SPA
             // 
             // cboxHora
             // 
+            this.cboxHora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxHora.FormattingEnabled = true;
-            this.cboxHora.Items.AddRange(new object[] {
-            "10:00:00",
-            "12:00:00",
-            "14:00:00",
-            "16:00:00",
-            "18:00:00"});
-            this.cboxHora.Location = new System.Drawing.Point(151, 352);
+            this.cboxHora.Location = new System.Drawing.Point(151, 377);
             this.cboxHora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboxHora.Name = "cboxHora";
             this.cboxHora.Size = new System.Drawing.Size(169, 33);
             this.cboxHora.TabIndex = 10;
             this.cboxHora.SelectedIndexChanged += new System.EventHandler(this.cboxHora_SelectedIndexChanged);
+            this.cboxHora.ValueMemberChanged += new System.EventHandler(this.cboxHora_ValueMemberChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 360);
+            this.label4.Location = new System.Drawing.Point(83, 380);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 25);
+            this.label4.Size = new System.Drawing.Size(60, 25);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Hora:";
+            this.label4.Text = "Hora :";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cboxServicio
             // 
+            this.cboxServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxServicio.FormattingEnabled = true;
             this.cboxServicio.Items.AddRange(new object[] {
             "01 - Facial Desincrustante",
@@ -178,7 +175,7 @@ namespace SPA
             "15 - Masaje facial ",
             "16 - Manicura",
             "17 - Pedicura"});
-            this.cboxServicio.Location = new System.Drawing.Point(151, 404);
+            this.cboxServicio.Location = new System.Drawing.Point(151, 429);
             this.cboxServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboxServicio.Name = "cboxServicio";
             this.cboxServicio.Size = new System.Drawing.Size(169, 33);
@@ -189,12 +186,12 @@ namespace SPA
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 412);
+            this.label5.Location = new System.Drawing.Point(61, 432);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 25);
+            this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Servicio:";
+            this.label5.Text = "Servicio :";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pBImagenes

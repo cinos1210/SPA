@@ -16,7 +16,7 @@ namespace SPA
         {
             con.Open();
         }
-        public void registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio)
+        public void registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio,string fechaDeCita, Boolean[] horarios)
         {
             conectar();
             
@@ -40,6 +40,10 @@ namespace SPA
 
             string corrigePrecio = "UPDATE Compras SET total="+precioSer+" WHERE idCompras=" + idC;
             insert = new NpgsqlCommand(corrigePrecio, con);
+            insert.ExecuteNonQuery();
+
+            string updatehorarios = "UPDATE \"DiaCita\" SET horarios='{"+horarios[0]+"," + horarios[1] + "," + horarios[2] + "," + horarios[3] + "," + horarios[4] + "}' WHERE \"diaDeCita\"='" + fechaDeCita + "';";
+            insert = new NpgsqlCommand(updatehorarios, con);
             insert.ExecuteNonQuery();
 
             con.Close();
@@ -84,5 +88,26 @@ namespace SPA
             con.Close();
             return (byte[])(tabla.Rows[0]["image"]);
         }
+        public Boolean[] obtenHorarios(string date) {
+            try
+            {
+                string sent = "SELECT horarios FROM \"DiaCita\" WHERE \"diaDeCita\"='" + date + "';";
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand(sent, con);
+                NpgsqlDataAdapter dato = new NpgsqlDataAdapter(com);
+                DataTable tabla = new DataTable();
+                dato.Fill(tabla);
+                con.Close();
+                return (Boolean[])(tabla.Rows[0]["horarios"]);
+            }
+            catch {
+                con.Open();
+                NpgsqlCommand insert = new NpgsqlCommand("INSERT INTO public.\"DiaCita\" (\"diaDeCita\", horarios) VALUES  ('" + date + "', '{0,0,0,0,0}');", con);
+                insert.ExecuteNonQuery();
+                con.Close();
+                Boolean[] arr = new Boolean[] { false,false,false,false,false};
+                return arr;
+            }
+}
     }
 }
