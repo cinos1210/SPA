@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SPA
 {
     public partial class Productos : Form
     {
-        public Productos()
-        {
-            InitializeComponent();
-        }
+        conexion conexion = new conexion();
+
+        
     }
 }
