@@ -58,14 +58,14 @@ namespace SPA
                         {
                             if ((new Regex(@"^[0-9]+$")).IsMatch(txbTelefono.Text)&& txbTelefono.Text.Length==10)
                             {
-                                if ((new Regex(@"^[A-Za-z]+$")).IsMatch(tbxNombre.Text)&& tbxNombre.Text.Length>12)
+                                if ((new Regex(@"^[A-Z a-z]+$")).IsMatch(tbxNombre.Text)&& tbxNombre.Text.Length>12)
                                 {
                                     if (new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$").IsMatch(txbCorreo.Text))
                                     {
                                         string fechaCitaStr = FechaCita.Value.ToString("yyyy/MM/dd");
                                         int servicio = Int32.Parse(cboxServicio.Text.Substring(0, 2));
                                         horarios[indexHorarios[cboxHora.SelectedIndex]] = true;
-                                        conexion.registrarCita(tbxNombre.Text, txbCorreo.Text, txbTelefono.Text, fechaCitaStr + " " + cboxHora.Text, servicio, FechaCita.Text, horarios);
+                                        conexion.registrarCita(tbxNombre.Text, txbCorreo.Text, txbTelefono.Text, fechaCitaStr + " " + cboxHora.Text, servicio, FechaCita.Text, horarios, indexHorarios[cboxHora.SelectedIndex]);
                                         Close();
                                     }else
                                         MessageBox.Show("Ingresa un correo valido, por favor");
