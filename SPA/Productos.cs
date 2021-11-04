@@ -13,11 +13,12 @@ namespace SPA
 {
     public partial class Productos : Form
     {
-        
-        
-        
-        public void obtenerProductos()
+
+
+
+        public Productos()
         {
+            InitializeComponent();
             NpgsqlConnection connPro = new NpgsqlConnection("Server = 143.198.59.91; User Id = admin; Password = SistemaSpa2021B; Database= spa");
             connPro.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
