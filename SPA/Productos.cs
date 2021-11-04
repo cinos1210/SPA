@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SPA
 {
     public partial class Productos : Form
     {
+<<<<<<< HEAD
         public Productos()
         {
             InitializeComponent();
@@ -26,5 +28,10 @@ namespace SPA
         {
 
         }
+=======
+        conexion conexion = new conexion();
+
+        
+>>>>>>> aa37687a1fa231809fa1525f66e861e1ed0af1eb
     }
 }
