@@ -29,5 +29,11 @@ namespace SPA
 
             citas.Show();
         }
+
+        private void btonEditarCita_Click(object sender, EventArgs e)
+        {
+            Busqueda_de_cita busqueda_De_Cita = new Busqueda_de_cita();
+            busqueda_De_Cita.Show(); 
+        }
     }
 }

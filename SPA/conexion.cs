@@ -16,7 +16,28 @@ namespace SPA
         {
             con.Open();
         }
-        public void registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio,string fechaDeCita, Boolean[] horarios)
+        public void liberarHorario(int indice,string fechaAnterior) {
+            Boolean[] horarios = obtenHorarios(fechaAnterior);
+            con.Open();
+            horarios[indice] = false;
+            NpgsqlCommand insert = new NpgsqlCommand("UPDATE public.\"DiaCita\" SET  horarios='{" + horarios[0] + "," + horarios[1] + "," + horarios[2] + "," + horarios[3] + "," + horarios[4] + "}' WHERE \"diaDeCita\" ='" + fechaAnterior + "';", con);
+            insert.ExecuteNonQuery();
+            con.Close();
+           
+
+        }
+        public void actualizaCita(int id, string fecha, Boolean[] horarios, int indiHorario)
+        {
+            con.Open();
+            NpgsqlCommand insert = new NpgsqlCommand(" UPDATE public.citas SET feyhrcita = '" + fecha + "', \"indexDiaCita\" = "+indiHorario+" WHERE idcita = " + id + ";", con);
+            insert.ExecuteNonQuery();
+            string updatehorarios = "UPDATE \"DiaCita\" SET horarios='{" + horarios[0] + "," + horarios[1] + "," + horarios[2] + "," + horarios[3] + "," + horarios[4] + "}' WHERE \"diaDeCita\"='" + fecha + "';";
+            insert = new NpgsqlCommand(updatehorarios, con);
+            insert.ExecuteNonQuery();
+            con.Close();
+
+        }
+    public void registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio,string fechaDeCita, Boolean[] horarios, int indiHorario)
         {
             conectar();
             
@@ -27,7 +48,7 @@ namespace SPA
             string idC = obtenId("SELECT max(idCompras) FROM Compras;");
   
 
-            string sent = "INSERT INTO Citas(nombre, idCompras, correo, Ntelefono, FeYHrCita, FeYHrElaboracion) VALUES ('" + nombre + "'," + idC + ",'" + correo + "','" + Ntelefono + "','" + FeYHrCita + "','" + str + "');";
+            string sent = "INSERT INTO Citas(nombre, idCompras, correo, Ntelefono, FeYHrCita, FeYHrElaboracion, \"indexDiaCita\") VALUES ('" + nombre + "'," + idC + ",'" + correo + "','" + Ntelefono + "','" + FeYHrCita + "','" + str + "',"+indiHorario+");";
             insert = new NpgsqlCommand(sent,  con);
             insert.ExecuteNonQuery();
 
@@ -58,6 +79,21 @@ namespace SPA
             dato.Fill(tabla);
             return tabla.Rows[0]["max"].ToString();
         }
+        public bool buscaId(int id)
+        {
+            con.Open();
+            try
+            {
+                string sent = " SELECT * FROM Citas WHERE idCita=" + id + ";";
+                NpgsqlCommand com = new NpgsqlCommand(sent, con);
+                NpgsqlDataAdapter dato = new NpgsqlDataAdapter(com);
+                con.Close();
+                return true;
+            }
+            catch {
+                return false;
+            }
+        }
         public string obtenPrecioServicio(string sent)
         {
             NpgsqlCommand com = new NpgsqlCommand(sent, con);
@@ -65,6 +101,15 @@ namespace SPA
             DataTable tabla = new DataTable();
             dato.Fill(tabla);
             return tabla.Rows[0]["costo"].ToString();
+        }
+        public string obtenDatos(string sent,string inf)
+        {
+
+            NpgsqlCommand com = new NpgsqlCommand(sent, con);
+            NpgsqlDataAdapter dato = new NpgsqlDataAdapter(com);
+            DataTable tabla = new DataTable();
+            dato.Fill(tabla);
+            return tabla.Rows[0][inf].ToString();
         }
         public string obtenNumDeImagenes()
         {
@@ -108,6 +153,6 @@ namespace SPA
                 Boolean[] arr = new Boolean[] { false,false,false,false,false};
                 return arr;
             }
-}
+        }
     }
 }

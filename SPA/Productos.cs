@@ -16,5 +16,15 @@ namespace SPA
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
