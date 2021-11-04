@@ -33,8 +33,8 @@ namespace SPA
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,36 +69,35 @@ namespace SPA
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(661, 345);
+            this.btnComprar.Location = new System.Drawing.Point(670, 355);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(206, 53);
             this.btnComprar.TabIndex = 4;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 76);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(596, 322);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(27, 76);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowTemplate.Height = 25;
+            this.dgvProductos.Size = new System.Drawing.Size(596, 322);
+            this.dgvProductos.TabIndex = 5;
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Productos";
             this.Text = "Productos";
-      
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +109,6 @@ namespace SPA
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnComprar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductos;
     }
 }
