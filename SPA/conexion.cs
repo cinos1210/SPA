@@ -37,7 +37,7 @@ namespace SPA
             con.Close();
 
         }
-    public void registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio,string fechaDeCita, Boolean[] horarios, int indiHorario)
+    public int registrarCita(string nombre,string correo, string Ntelefono, string FeYHrCita,int servicio,string fechaDeCita, Boolean[] horarios, int indiHorario)
         {
             conectar();
             
@@ -46,7 +46,7 @@ namespace SPA
             NpgsqlCommand insert = new NpgsqlCommand("INSERT INTO Compras (FeyHr,total) VALUES ('"+str+"',0);", con);
             insert.ExecuteNonQuery();
             string idC = obtenId("SELECT max(idCompras) FROM Compras;");
-  
+            
 
             string sent = "INSERT INTO Citas(nombre, idCompras, correo, Ntelefono, FeYHrCita, FeYHrElaboracion, \"indexDiaCita\") VALUES ('" + nombre + "'," + idC + ",'" + correo + "','" + Ntelefono + "','" + FeYHrCita + "','" + str + "',"+indiHorario+");";
             insert = new NpgsqlCommand(sent,  con);
@@ -66,9 +66,10 @@ namespace SPA
             string updatehorarios = "UPDATE \"DiaCita\" SET horarios='{"+horarios[0]+"," + horarios[1] + "," + horarios[2] + "," + horarios[3] + "," + horarios[4] + "}' WHERE \"diaDeCita\"='" + fechaDeCita + "';";
             insert = new NpgsqlCommand(updatehorarios, con);
             insert.ExecuteNonQuery();
-
+            
             con.Close();
             MessageBox.Show("Cita creada");
+            return Int32.Parse(obtenId("SELECT max(idcita) FROM Citas;"));
 
         }
         public void Compra(int[] productos, float total, float[] precios) {
