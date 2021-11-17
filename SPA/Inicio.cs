@@ -19,7 +19,7 @@ namespace SPA
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            Productos productos = new Productos();
+            ProductoSO productos = new ProductoSO();
             productos.Show();
         }
 

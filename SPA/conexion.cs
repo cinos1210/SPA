@@ -71,6 +71,22 @@ namespace SPA
             MessageBox.Show("Cita creada");
 
         }
+        public void Compra(int[] productos, float total, float[] precios) {
+            conectar();
+
+            DateTime localDate = DateTime.Now;
+            string str = localDate.ToString("yyyy/MM/dd HH:mm:ss");
+            NpgsqlCommand insert = new NpgsqlCommand("INSERT INTO Compras (FeyHr,total) VALUES ('" + str + "'," + total + ");", con);
+            insert.ExecuteNonQuery();
+            string idC = obtenId("SELECT max(idCompras) FROM Compras;");
+            for (int i = 0; i < productos.Length; i++) {
+                if (productos[i] > 0)
+                {
+                    insert = new NpgsqlCommand("INSERT INTO public.productocomprado(idcompras, idproducto, cantidad, precio, preciototal)VALUES(" + idC + "," + (i + 1) + "," + productos[i] + "," + precios[i] + "," + (precios[i] * productos[i]) + ");", con);
+                    insert.ExecuteNonQuery();
+                }
+            }
+        }
         public string obtenId(string sent)
         {
             NpgsqlCommand com = new NpgsqlCommand(sent, con);
@@ -153,6 +169,27 @@ namespace SPA
                 Boolean[] arr = new Boolean[] { false,false,false,false,false};
                 return arr;
             }
+        }
+        public DataTable obtenerProductos()
+        {
+            con.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = con;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select * from productos";
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            if (dr.HasRows)
+            {
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                comm.Dispose();
+                con.Close();
+                return dt;
+            }
+            else
+                MessageBox.Show("No hay productos");
+
+            return null;
         }
     }
 }
