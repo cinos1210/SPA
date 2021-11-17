@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading;
 using Microsoft.VisualBasic.Logging;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 
 namespace SPA
@@ -62,11 +63,14 @@ namespace SPA
                                 {
                                     if (new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$").IsMatch(txbCorreo.Text))
                                     {
+                                        
                                         string fechaCitaStr = FechaCita.Value.ToString("yyyy/MM/dd");
                                         int servicio = Int32.Parse(cboxServicio.Text.Substring(0, 2));
                                         horarios[indexHorarios[cboxHora.SelectedIndex]] = true;
                                         conexion.registrarCita(tbxNombre.Text, txbCorreo.Text, txbTelefono.Text, fechaCitaStr + " " + cboxHora.Text, servicio, FechaCita.Text, horarios, indexHorarios[cboxHora.SelectedIndex]);
+                                        enviarCorreo(txbCorreo.Text.Trim(), fechaCitaStr + " " + cboxHora.Text.Trim(), servicio.ToString().Trim(), out string Error);
                                         Close();
+                                        
                                     }else
                                         MessageBox.Show("Ingresa un correo valido, por favor");
                                 }else
@@ -185,5 +189,40 @@ namespace SPA
         {
 
         }
+        public static void enviarCorreo(string para, string fecha, string servicio, out string Error)
+        {
+            const string user = "rafael.gutierrez4666@alumnos.udg.mx";
+            const string psw = ".UdeG-17774";
+
+            string de = "rafael.gutierrez4666@alumnos.udg.mx";
+            string asunto = "Su cita de servicio de spa a llegado";
+            string Mensaje = "Su cita en el SPA Cruz del Sur quedo agendada de la siguiente manera: . \n El dia:"+ fecha +" . \n Con el servicio: "+ servicio +". \n Cualquier cambio que quiera hacer para la cita debe de hacerse con 3 dias de anticipacion antes del la cita. \n Comuniquese con nosotros al telefono 3318032314 o responda este correo";
+
+            Error = "";
+            try
+            {
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(de);
+                mail.To.Add(para);
+                mail.Subject = asunto;
+                mail.Body = Mensaje.ToString();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential(user, psw);
+                smtp.Send(mail);
+                Error = "Mensaje Enviado";
+                MessageBox.Show(Error);
+            }
+            catch (Exception ex)
+            {
+                Error = "Error" + ex.Message;
+                MessageBox.Show(Error);
+                return;
+            }
+        }
+
     }
 }

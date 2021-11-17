@@ -41,10 +41,9 @@ namespace SPA
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(39, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(27, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(650, 48);
+            this.label1.Size = new System.Drawing.Size(435, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Elija los productos que deseé comprar...";
             // 
@@ -52,10 +51,9 @@ namespace SPA
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(990, 517);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(920, 311);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 48);
+            this.label2.Size = new System.Drawing.Size(77, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Total: ";
             // 
@@ -63,19 +61,17 @@ namespace SPA
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(1109, 517);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotal.Location = new System.Drawing.Point(1003, 311);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(85, 48);
+            this.lblTotal.Size = new System.Drawing.Size(58, 32);
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "0.00";
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(957, 592);
-            this.btnComprar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnComprar.Location = new System.Drawing.Point(897, 356);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(294, 88);
+            this.btnComprar.Size = new System.Drawing.Size(206, 53);
             this.btnComprar.TabIndex = 4;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
@@ -83,26 +79,22 @@ namespace SPA
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(39, 127);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvProductos.Location = new System.Drawing.Point(27, 76);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 62;
             this.dgvProductos.RowTemplate.Height = 25;
-            this.dgvProductos.Size = new System.Drawing.Size(851, 537);
+            this.dgvProductos.Size = new System.Drawing.Size(822, 322);
             this.dgvProductos.TabIndex = 5;
-            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
             // Productos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1369, 750);
+            this.ClientSize = new System.Drawing.Size(1164, 450);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Productos";
             this.Text = "Productos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
