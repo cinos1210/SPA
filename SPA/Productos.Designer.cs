@@ -51,7 +51,7 @@ namespace SPA
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(693, 310);
+            this.label2.Location = new System.Drawing.Point(920, 311);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 32);
             this.label2.TabIndex = 2;
@@ -61,7 +61,7 @@ namespace SPA
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(776, 310);
+            this.lblTotal.Location = new System.Drawing.Point(1003, 311);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(58, 32);
             this.lblTotal.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace SPA
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(670, 355);
+            this.btnComprar.Location = new System.Drawing.Point(897, 356);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(206, 53);
             this.btnComprar.TabIndex = 4;
@@ -82,14 +82,14 @@ namespace SPA
             this.dgvProductos.Location = new System.Drawing.Point(27, 76);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowTemplate.Height = 25;
-            this.dgvProductos.Size = new System.Drawing.Size(596, 322);
+            this.dgvProductos.Size = new System.Drawing.Size(822, 322);
             this.dgvProductos.TabIndex = 5;
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 450);
+            this.ClientSize = new System.Drawing.Size(1164, 450);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.lblTotal);
