@@ -196,7 +196,7 @@ namespace SPA
             
             string de = "rafael.gutierrez4666@alumnos.udg.mx";
             string asunto = "Su cita de servicio de spa a llegado";
-            string Mensaje = "Codigo de cita: "+idCita+"\nSu cita en el SPA Cruz del Sur quedo agendada de la siguiente manera: . \n El dia:"+ fecha +" . \n Con el servicio: "+ servicio +". \n Cualquier cambio que quiera hacer para la cita debe de hacerse con 3 dias de anticipacion antes del la cita. \n Comuniquese con nosotros al telefono 3318032314 o responda este correo";
+            string Mensaje = "Su cita en el SPA Cruz del Sur quedo agendada de la siguiente manera: \n Codigo de cita: "+idCita+" \n El dia:"+ fecha +" . \n Con el servicio: "+ servicio +". \n Cualquier cambio que quiera hacer para la cita debe de hacerse con 3 dias de anticipacion antes del la cita. \n Comuniquese con nosotros al telefono 3318032314 o responda este correo";
 
             Error = "";
             try
